@@ -1,0 +1,14 @@
+<!--index.wxml-->
+<view class="container">
+  <view class='playlists' wx:for='{{playlists}}' wx:key='{{item.id}}'>
+    <image lazy-load='true' mode='aspectFill' src='{{item.coverImgUrl}}'></image>
+    <view>
+      <label class='name'>{{item.name}}</label>
+      <label class='creator'>by {{item.creator.nickname}}</label>
+      <view>
+        <label class='tag'>{{item.tag}}</label>
+        <label class='copywriter'>{{item.copywriter}}</label>
+      </view>
+    </view>
+  </view>
+</view>
