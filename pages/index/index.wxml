@@ -5,10 +5,7 @@
     <view>
       <label class='name'>{{item.name}}</label>
       <label class='creator'>by {{item.creator.nickname}}</label>
-      <view>
-        <label class='tag'>{{item.tag}}</label>
-        <label class='copywriter'>{{item.copywriter}}</label>
-      </view>
+      <label class='copywriter'><label class='tag'>{{item.tag}}</label>{{item.copywriter}}</label>
     </view>
   </view>
 </view>
