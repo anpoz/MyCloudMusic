@@ -9,7 +9,7 @@ Page({
   },
   onLoad: function () {
     wx.request({
-      url: 'http://192.168.31.224:3000/top/playlist?limit=5&order=hot',
+      url: app.globalData.baseUrl + '/top/playlist?limit=5&order=hot',
       dataType: 'json',
       success: (res) => {
         this.setData({
@@ -18,7 +18,7 @@ Page({
       }
     })
     wx.request({
-      url: 'http://192.168.31.224:3000/top/playlist/highquality?limit=10',
+      url: app.globalData.baseUrl + '/top/playlist/highquality?limit=10',
       dataType: 'json',
       success: (res) => {
         let data = res.data;

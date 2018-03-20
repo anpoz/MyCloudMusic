@@ -44,7 +44,7 @@
 }
 
 .creator {
-  height: 100rpx;
+  height: 80rpx;
   position: relative;
 }
 

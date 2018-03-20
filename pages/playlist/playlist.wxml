@@ -9,10 +9,11 @@
         <image src='{{avatarUrl}}' class='avatar' mode='aspectFill' lazy-load='true'></image>
         <text>{{nickname}}</text>
       </view>
-      <text class='info' wx:if='{{playCount}}'>
-      播放次数：{{playCount}}次\n
-      {{subscribedCount}}人收藏\n
-      分类：{{tags}}</text>
+      <view class='info' wx:if='{{playCount}}'>
+        <text>播放次数：{{playCount}}次\n</text>
+        <text>{{subscribedCount}}人收藏\n</text>
+        <text>分类：{{tags}}</text>
+      </view>
     </view>
   </view>
   <view class='songlists' wx:for='{{songlists}}' wx:key='{{item.id}}' hover hover-class="view-item-hover" bindtap='play' data-id='{{item.id}}'>

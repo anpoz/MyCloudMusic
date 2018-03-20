@@ -1,4 +1,5 @@
 // pages/playlist/playlist.js
+const app = getApp();
 Page({
 
   /**
@@ -32,7 +33,7 @@ Page({
   onReady: function () {
     let id = this.data.id;
     wx.request({
-      url: 'http://192.168.31.224:3000/playlist/detail?id=' + id,
+      url: app.globalData.baseUrl + '/playlist/detail?id=' + id,
       dataType: 'json',
       success: (res) => {
         console.log(res.data);
