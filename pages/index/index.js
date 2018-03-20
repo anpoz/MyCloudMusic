@@ -4,24 +4,36 @@ const app = getApp()
 
 Page({
   data: {
-    playlists: []
+    playlists: [],
+    topPlaylists: []
   },
   onLoad: function () {
     wx.request({
-      url: 'http://192.168.1.2:3000/top/playlist/highquality?limit=10',
+      url: 'http://192.168.31.224:3000/top/playlist?limit=5&order=hot',
+      dataType: 'json',
+      success: (res) => {
+        this.setData({
+          topPlaylists: res.data.playlists
+        });
+      }
+    })
+    wx.request({
+      url: 'http://192.168.31.224:3000/top/playlist/highquality?limit=10',
       dataType: 'json',
       success: (res) => {
         let data = res.data;
-        if (typeof res.data === 'string') {
+        if (typeof data === 'string') {
           data = JSON.parse(res.data);
-          console.log(data);
         }
-        if (res.statusCode = 200) {
-          this.setData({
-            playlists: data.playlists
-          });
-        }
+        this.setData({
+          playlists: data.playlists
+        });
       }
     });
+  },
+  playlistDetail: function (e) {
+    wx.navigateTo({
+      url: '../playlist/playlist?id=' + e.currentTarget.dataset.id
+    })
   }
 })

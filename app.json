@@ -1,12 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/playlist/playlist",
+    "pages/play/play"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "My Cloud Music",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
