@@ -30,7 +30,7 @@
 }
 
 .header > view {
-  margin-top: 50rpx;
+  margin-top: 40rpx;
   width: 100%;
   justify-content: flex-start;
   align-items: center;
@@ -104,6 +104,9 @@
   color: black;
   flex-grow: 1;
   padding-top: 15rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .songInfo {

@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/user/user",
     "pages/playlist/playlist",
     "pages/play/play"
   ],
@@ -10,17 +9,5 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "My Cloud Music",
     "navigationBarTextStyle": "black"
-  },
-  "tabBar": {
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "text": "个人"
-      }
-    ]
   }
 }

@@ -16,7 +16,7 @@
       </view>
     </view>
   </view>
-  <view class='songlists' wx:for='{{songlists}}' wx:key='{{item.id}}' hover hover-class="view-item-hover" bindtap='play' data-id='{{item.id}}'>
+  <view class='songlists' wx:for='{{songlists}}' wx:key='{{item.id}}' hover hover-class="view-item-hover" bindtap='play' data-id='{{index}}'>
     <text class='index'>{{index + 1}}</text>
     <view class='content'>
       <text class='songName'>{{item.name}}</text>

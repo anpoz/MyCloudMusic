@@ -1,5 +1,6 @@
 // pages/playlist/playlist.js
 const app = getApp();
+const utils = require('../../utils/util.js');
 Page({
 
   /**
@@ -24,7 +25,10 @@ Page({
   onLoad: function (options) {
     this.setData({
       id: options.id
-    })
+    });
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   },
 
   /**
@@ -36,7 +40,6 @@ Page({
       url: app.globalData.baseUrl + '/playlist/detail?id=' + id,
       dataType: 'json',
       success: (res) => {
-        console.log(res.data);
         res.data.result.tracks.forEach((e) => {
           // 处理歌手数组
           let arr = [];
@@ -45,7 +48,7 @@ Page({
           })
           e.singers = arr.join('/');
           // 转换歌曲时长
-          e.durationStr = this.sec_to_time(e.duration);
+          e.durationStr = utils.formatAudioProcess(e.duration / 1000);
         });
         this.setData({
           songlists: res.data.result.tracks,
@@ -61,36 +64,27 @@ Page({
       }
     });
   },
-  sec_to_time: function (s) {
-    let t = '';
-    if (s > -1) {
-      let hour = Math.floor(s / 3600000);
-      let min = Math.floor(s / 60000) % 60;
-      let sec = s / 1000 % 60;
-      if (hour > 0) {
-        if (hour < 10) {
-          t = '0' + hour + ":";
-        } else {
-          t = hour + ":";
-        }
-      }
-
-      if (min < 10) { t += "0"; }
-      t += min + ":";
-      if (sec < 10) { t += "0"; }
-      t += sec.toFixed(0);
-    }
-    return t;
+  play: function (e) {
+    app.globalData.currentPos = e.currentTarget.dataset.id;
+    app.globalData.tracks = this.data.songlists;
+    wx.navigateTo({
+      url: '../play/play'
+    });
   },
   onShareAppMessage: function (res) {
     return {
       title: this.data.name,
       path: '/playlist/playlist?id=' + this.data.id,
       success: function (res) {
-        // 转发成功
-        wx.showToast({
-          title: '分享成功'
-        })
+        wx.getShareInfo({
+          shareTicket: res.shareTickets[0],
+          success(res) {
+            console.log(res.encryptedData)
+            console.log(res.iv)
+            // 后台解密，获取 openGId
+            // 可以通过openData组件显示群名称
+          }
+        });
       },
       fail: function (res) {
         // 转发失败
