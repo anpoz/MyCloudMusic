@@ -10,6 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.93",
 	"appid": "wx52153eeccdab5689",
+	"qcloudRoot": "../NeteaseCloudMusicApi/",
 	"projectname": "MyCloudMusic",
 	"condition": {
 		"search": {

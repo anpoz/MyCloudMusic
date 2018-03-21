@@ -2,9 +2,11 @@
 App({
   onLaunch: function () {
   },
+  config:{
+    host: 'http://198.13.36.138:3000'
+  },
   globalData: {
     userInfo: null,
-    baseUrl: 'http://192.168.31.224:3000',
     tracks: [],
     duration: 0,
     playing: false,

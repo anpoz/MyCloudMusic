@@ -37,7 +37,7 @@ Page({
   onReady: function () {
     let id = this.data.id;
     wx.request({
-      url: app.globalData.baseUrl + '/playlist/detail?id=' + id,
+      url: app.config.host + '/playlist/detail?id=' + id,
       dataType: 'json',
       success: (res) => {
         res.data.result.tracks.forEach((e) => {

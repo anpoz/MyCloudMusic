@@ -9,5 +9,9 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "My Cloud Music",
     "navigationBarTextStyle": "black"
+  },
+  "networkTimeout": {
+    "request": 5000,
+    "downloadFile": 5000
   }
 }
