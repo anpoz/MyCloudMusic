@@ -9,17 +9,7 @@ Page({
   },
   onLoad: function () {
     wx.request({
-      url: app.config.host + '/top/playlist?limit=5&order=hot',
-      dataType: 'json',
-      success: (res) => {
-        let data = res.data;
-        this.setData({
-          topPlaylists: data.playlists
-        });
-      }
-    })
-    wx.request({
-      url: app.config.host + '/top/playlist/highquality?limit=10',
+      url: app.config.host + '/top/playlist?limit=30&order=hot',
       dataType: 'json',
       success: (res) => {
         let data = res.data;
@@ -28,6 +18,19 @@ Page({
         }
         this.setData({
           playlists: data.playlists
+        });
+      }
+    })
+    wx.request({
+      url: app.config.host + '/top/playlist/highquality?limit=5',
+      dataType: 'json',
+      success: (res) => {
+        let data = res.data;
+        if (typeof data === 'string') {
+          data = JSON.parse(res.data);
+        }
+        this.setData({
+          topPlaylists: data.playlists
         });
       }
     });

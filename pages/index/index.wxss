@@ -31,11 +31,15 @@
   justify-content: flex-start;
   align-items: center;
   padding: 28rpx 0;
+  overflow: hidden;
 }
 
 .name {
   font-size: 28rpx;
   display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .creator {
@@ -45,21 +49,11 @@
   line-height: 3;
 }
 
-.tag {
+.tags {
   padding: 4rpx 8rpx;
   font-size: 20rpx;
   color: red;
   border: 2rpx solid red;
   border-radius: 3rpx;
-  line-height: 2;
   margin-right: 10rpx;
-}
-
-.copywriter {
-  font-size: 24rpx;
-  color: darkgray;
-  overflow: hidden;
-  display: inline-block;
-  word-break: break-all;
-  line-height: 36rpx;
 }
