@@ -16,12 +16,14 @@
       </view>
     </view>
   </view>
-  <view class='songlists' wx:for='{{songlists}}' wx:key='{{item.id}}' hover hover-class="view-item-hover" bindtap='play' data-id='{{index}}'>
-    <text class='index'>{{index + 1}}</text>
-    <view class='content'>
-      <text class='songName'>{{item.name}}</text>
-      <text class='songInfo'>{{item.singers}} - {{item.album.name}}</text>
+  <block wx:for='{{songlists}}' wx:key='{{item.id}}'>
+    <view class='songlists' bindtap='play' data-id='{{index}}'>
+      <text class='index'>{{index + 1}}</text>
+      <view class='content'>
+        <text class='songName'>{{item.name}}</text>
+        <text class='songInfo'>{{item.singers}} - {{item.album.name}}</text>
+      </view>
+      <text class='duration'>{{item.durationStr}}</text>
     </view>
-    <text class='duration'>{{item.durationStr}}</text>
-  </view>
+  </block>
 </view>

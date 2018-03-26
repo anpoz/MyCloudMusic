@@ -81,7 +81,7 @@ Page({
           success(res) {
             console.log(res.encryptedData)
             console.log(res.iv)
-            // 后台解密，获取 openGId
+            // 后台解密，获取  
             // 可以通过openData组件显示群名称
           }
         });
